@@ -1,4 +1,4 @@
-# YAHAPA - Your Health and Productivity App
+# YAHAPA - (yet another health and productivity app XD)
 
 A comprehensive Next.js application that tracks your health metrics, productivity tasks, daily habits, and focus time through an intuitive dashboard with beautiful visualizations.
 
