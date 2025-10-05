@@ -1,0 +1,29 @@
+YAHAPA - Your Health and Productivity App
+
+Welcome to YAHAPA!
+
+Thank you for signing up! We're excited to have you on board. To get started with tracking your health and productivity, please verify your email address.
+
+VERIFY YOUR EMAIL
+Click the link below to confirm your email and activate your account:
+
+{{ .ConfirmationURL }}
+
+Once verified, you'll be able to:
+• Track your daily health metrics with Google Fit integration
+• Manage tasks with AI-powered effort scoring
+• Build consistent habits with streak tracking
+• Stay focused with the Pomodoro timer
+• Visualize your progress with beautiful activity rings
+
+SECURITY NOTE
+This verification link will expire in 24 hours. If you didn't create an account with YAHAPA, you can safely ignore this email.
+
+---
+
+YAHAPA - Track your health and productivity in one place
+
+Privacy Policy: https://yahapa.vercel.app/privacy
+Terms of Service: https://yahapa.vercel.app/terms
+
+© {{ .Year }} YAHAPA. All rights reserved.
