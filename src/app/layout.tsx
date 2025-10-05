@@ -5,6 +5,10 @@ import { ThemeProvider } from '@/components/ThemeProvider'
 export const metadata: Metadata = {
   title: 'YAHAPA',
   description: 'Track your health and productivity in one place',
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
 }
 
 export default function RootLayout({
