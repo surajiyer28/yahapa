@@ -2,6 +2,12 @@
 
 A comprehensive Next.js application that tracks your health metrics, productivity tasks, daily habits, and focus time through an intuitive dashboard with beautiful visualizations.
 
+## 🌐 Live Demo
+
+**[https://yahapa.vercel.app/](https://yahapa.vercel.app/)**
+
+Try out the app with full functionality including Google Fit integration, AI-powered task scoring, and habit tracking!
+
 ## ✨ Features
 
 ### 📊 Activity Rings & Dashboard
