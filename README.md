@@ -132,7 +132,7 @@ All tables include Row Level Security (RLS) policies for data protection.
    ANTHROPIC_API_KEY=your-anthropic-api-key
 
    # Application URL
-   NEXT_PUBLIC_APP_URL=http://localhost:3000
+   NEXT_PUBLIC_APP_URL=http://localhost:3000 (for development)
    ```
 
 4. **Set up Supabase Database**
