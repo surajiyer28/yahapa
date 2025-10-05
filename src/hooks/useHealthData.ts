@@ -117,6 +117,7 @@ export function useHealthData(userId: string | undefined, date?: string) {
     }
 
     initHealthData()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userId, date])
 
   const syncHealthData = async () => {

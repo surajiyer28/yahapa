@@ -171,7 +171,7 @@ export default function LoginPage() {
                   Sign in
                 </button>
                 <p className="mt-3 text-center text-sm text-gray-600 dark:text-gray-400">
-                  Don't have an account?{' '}
+                  Don&apos;t have an account?{' '}
                   <button
                     type="button"
                     onClick={() => setIsSignUp(true)}
@@ -203,7 +203,7 @@ export default function LoginPage() {
             </h3>
 
             <p className="text-gray-600 dark:text-gray-400 text-center mb-6">
-              We've sent a verification link to <strong className="text-gray-900 dark:text-white">{email}</strong>
+              We&apos;ve sent a verification link to <strong className="text-gray-900 dark:text-white">{email}</strong>
             </p>
 
             <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mb-6">
@@ -226,7 +226,7 @@ export default function LoginPage() {
             </button>
 
             <p className="text-xs text-gray-500 dark:text-gray-400 text-center mt-4">
-              Didn't receive the email? Check your spam folder or contact support.
+              Didn&apos;t receive the email? Check your spam folder or contact support.
             </p>
           </div>
         </div>

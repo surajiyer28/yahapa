@@ -58,6 +58,7 @@ export default function DashboardPage() {
     // Set random greeting on mount
     const randomGreeting = GREETINGS[Math.floor(Math.random() * GREETINGS.length)]
     setGreeting(randomGreeting)
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // Auto-rescore tasks on page load (once)
@@ -69,6 +70,7 @@ export default function DashboardPage() {
         sessionStorage.setItem('tasksRescored', 'true')
       }
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user?.id, tasks.length])
 
   async function checkUser() {
@@ -357,7 +359,7 @@ export default function DashboardPage() {
           {/* Activity Rings */}
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 flex flex-col overflow-hidden" style={{ height: '600px' }}>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
-              Today's Progress
+              Today&apos;s Progress
             </h3>
             <div className="flex-1 flex flex-col justify-center">
               <ActivityRings
