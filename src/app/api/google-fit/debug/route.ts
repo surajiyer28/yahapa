@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
   }
 
   // Get user's Google tokens
-  const { data: user, error: userError } = await supabaseServer
+  const { data: user, error: userError } = await (supabaseServer as any)
     .from('users')
     .select('*')
     .eq('id', userId)

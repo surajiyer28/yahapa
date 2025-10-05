@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'User ID required' }, { status: 400 })
   }
 
-  let query = supabaseServer
+  let query = (supabaseServer as any)
     .from('tasks')
     .select('*')
     .eq('user_id', userId)
@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
       // Continue with default score if Claude API fails
     }
 
-    const { data, error } = await supabaseServer
+    const { data, error } = await (supabaseServer as any)
       .from('tasks')
       .insert({
         user_id: userId,
@@ -87,7 +87,7 @@ export async function PATCH(request: NextRequest) {
     return NextResponse.json({ error: 'Task ID required' }, { status: 400 })
   }
 
-  const { data, error } = await supabaseServer
+  const { data, error } = await (supabaseServer as any)
     .from('tasks')
     .update(updates)
     .eq('id', taskId)
@@ -109,7 +109,7 @@ export async function DELETE(request: NextRequest) {
     return NextResponse.json({ error: 'Task ID required' }, { status: 400 })
   }
 
-  const { error } = await supabaseServer.from('tasks').delete().eq('id', taskId)
+  const { error } = await (supabaseServer as any).from('tasks').delete().eq('id', taskId)
 
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 })

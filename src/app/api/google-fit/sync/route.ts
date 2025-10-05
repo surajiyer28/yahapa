@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
   }
 
   // Get user's Google tokens
-  const { data: user, error: userError } = await supabaseServer
+  const { data: user, error: userError } = await (supabaseServer as any)
     .from('users')
     .select('google_access_token, google_refresh_token')
     .eq('id', userId)
@@ -52,7 +52,7 @@ export async function POST(request: NextRequest) {
     console.log('Fetched health data from Google Fit:', healthData)
     console.log('Will save with date string:', getDateString(targetDate))
 
-    const { data, error } = await supabaseServer
+    const { data, error } = await (supabaseServer as any)
       .from('health_data')
       .upsert(
         {
@@ -84,7 +84,7 @@ export async function POST(request: NextRequest) {
 
         console.log('✅ Got new access token, updating database...')
         // Update access token
-        await supabaseServer
+        await (supabaseServer as any)
           .from('users')
           .update({ google_access_token: newTokens.access_token })
           .eq('id', userId)
@@ -94,7 +94,7 @@ export async function POST(request: NextRequest) {
         const targetDate = date ? parseLocalDate(date) : new Date()
         const healthData = await getGoogleFitData(newTokens.access_token, targetDate)
 
-        const { data, error } = await supabaseServer
+        const { data, error } = await (supabaseServer as any)
           .from('health_data')
           .upsert(
             {

@@ -15,7 +15,7 @@ export async function DELETE(request: NextRequest) {
     // Delete user data in order (due to foreign key constraints)
 
     // 1. Delete health data
-    const { error: healthError } = await supabaseServer
+    const { error: healthError } = await (supabaseServer as any)
       .from('health_data')
       .delete()
       .eq('user_id', userId)
@@ -25,7 +25,7 @@ export async function DELETE(request: NextRequest) {
     }
 
     // 2. Delete tasks
-    const { error: tasksError } = await supabaseServer
+    const { error: tasksError } = await (supabaseServer as any)
       .from('tasks')
       .delete()
       .eq('user_id', userId)
@@ -35,7 +35,7 @@ export async function DELETE(request: NextRequest) {
     }
 
     // 3. Delete user profile
-    const { error: userError } = await supabaseServer
+    const { error: userError } = await (supabaseServer as any)
       .from('users')
       .delete()
       .eq('id', userId)

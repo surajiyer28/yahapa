@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
   }
 
   // Check if user has Google Fit tokens
-  const { data: user, error } = await supabaseServer
+  const { data: user, error } = await (supabaseServer as any)
     .from('users')
     .select('google_access_token, google_refresh_token')
     .eq('id', userId)

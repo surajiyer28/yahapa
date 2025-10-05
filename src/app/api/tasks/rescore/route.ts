@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
   }
 
   // Get all incomplete tasks
-  const { data: tasks, error: fetchError } = await supabaseServer
+  const { data: tasks, error: fetchError } = await (supabaseServer as any)
     .from('tasks')
     .select('*')
     .eq('user_id', userId)
@@ -29,12 +29,12 @@ export async function POST(request: NextRequest) {
   // Score all tasks
   try {
     const scores = await scoreBulkTasks(
-      tasks.map((t) => ({ id: t.id, title: t.title, notes: t.notes || undefined }))
+      tasks.map((t: any) => ({ id: t.id, title: t.title, notes: t.notes || undefined }))
     )
 
     // Update all tasks with new scores
     const updates = Object.entries(scores).map(([taskId, score]) =>
-      supabaseServer.from('tasks').update({ effort_score: score }).eq('id', taskId)
+      (supabaseServer as any).from('tasks').update({ effort_score: score }).eq('id', taskId)
     )
 
     await Promise.all(updates)

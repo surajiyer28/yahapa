@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { exchangeCodeForTokens } from '@/lib/google-fit/client'
 import { supabaseServer } from '@/lib/supabase/server'
 import { cookies } from 'next/headers'
+import { Database } from '@/lib/supabase/types'
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
@@ -29,13 +30,10 @@ export async function GET(request: NextRequest) {
     }
 
     // Save tokens to user profile
-    const { error } = await supabaseServer
-      .from('users')
-      .update({
-        google_access_token: tokens.access_token,
-        google_refresh_token: tokens.refresh_token,
-      })
-      .eq('id', userId)
+    const { error } = await (supabaseServer as any).from('users').update({
+      google_access_token: tokens.access_token,
+      google_refresh_token: tokens.refresh_token,
+    }).eq('id', userId)
 
     if (error) {
       throw error

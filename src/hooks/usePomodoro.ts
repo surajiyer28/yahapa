@@ -14,7 +14,7 @@ export function usePomodoro(userId: string | undefined, date: string) {
     if (!userId) return
 
     try {
-      const { data, error } = await supabase
+      const { data, error } = await (supabase as any)
         .from('pomodoro_sessions')
         .select('completed_count')
         .eq('user_id', userId)

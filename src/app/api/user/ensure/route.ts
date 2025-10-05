@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
     console.log('Ensuring user exists:', userId, email)
 
     // Try to insert user, ignore if already exists
-    const { data, error } = await supabaseServer
+    const { data, error } = await (supabaseServer as any)
       .from('users')
       .upsert(
         {

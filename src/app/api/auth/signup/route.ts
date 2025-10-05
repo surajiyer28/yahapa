@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
     const { error: profileError } = await supabaseServer.from('users').insert({
       id: authData.user.id,
       email: authData.user.email!,
-    })
+    } as any)
 
     if (profileError && profileError.code !== '23505') {
       // Ignore duplicate key errors
